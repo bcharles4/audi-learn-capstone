@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+    
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.side-pages {
+    width: 20%;
+    background-color: maroon;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 20px 0; /* Add padding for spacing */
+    filter: drop-shadow(7px 7px 2px #999);
+}
+
+.side-pages img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    
+}
+
+.side-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center-align links vertically */
+    align-items: center;
+    height: 100%; /* Occupy the remaining height */
+    gap: 15px; /* Space between links */
+    margin-top: -11pc;
+}
+
+.side-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+    width: 100%;
+    box-sizing: border-box; /* Ensure proper width */
+}
+
+.side-links a:last-child {
+    border-bottom: none; /* Remove border from last link */
+}
+
+.side-links a:hover {
+    background-color: white; /* Highlight effect on hover */
+    border-radius: 10px;
+    color: black;
+}
+
+
+
+.profile-container {
+    width: 80%;
+    height: 50vh;
+    margin: auto;
+    
+    padding: 20px;
+
+}
+
+
+.profile-details {
+    width: 60%;
+    margin: 40px auto;
+    background: white;
+    border: 5px solid maroon;
+    padding: 20px;
+    border-radius: 20px;
+    filter: drop-shadow(10px 10px 2px #999);
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.profile-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #999;
+}
+
+.profile-image button {
+    width: 30%;
+    padding: 7px;
+    background-color: maroon;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin: 20px auto;
+   
+}
+
+#profile-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ccc;
+}
+
+#upload-picture {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+
+.profile-info {
+    width: 60%;
+    height: 100%;
+    padding: 10px;
+    border-radius: 10px;
+  
+}
+
+.profile-info h2 {
+    font-size: 18px;
+    color: #111;
+    margin: 20px;
+}
+
+.profile-info button {
+    width: 30%;
+    padding: 7px;
+    background-color: maroon;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin: 20px auto;
+    margin-top: 10px;
+}
+
+.profile-info button:hover {
+    background-color: black;
+    color: white;
+}
+

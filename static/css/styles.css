@@ -1,0 +1,343 @@
+* {
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    height: 100vh;
+
+    background-image: url("../img/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.navbar {
+    width: 100%;
+    height: auto;
+    background-color: maroon;
+
+    text-transform: uppercase;
+
+}
+
+
+
+.navbar ul {
+    display: flex;
+    padding: 20px;
+}
+
+.navbar li {
+    list-style: none;
+    margin: 10px;
+    padding: 20px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.navbar li a {
+    color: white;
+    text-decoration: none;
+}
+
+
+
+.navbar li a:hover {
+    font-size: 40px;
+    transform: translateY(-5px);
+
+    font-size: 20px;
+
+}
+
+.logo {
+    width: 20%;
+    height: 3vh;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: 30px;
+
+}
+
+.logo img {
+    padding: 20px;
+    width: auto;
+    height: auto;
+}
+
+.lpBtn {
+    background-color: transparent;
+    width: 50%;
+    height: 68vh;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    /* Added this */
+
+}
+
+.lpBtn button {
+    width: 12pc;
+    height: 4pc;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: maroon;
+    border-radius: 20px;
+    position: absolute;
+    /* Added this */
+    bottom: 0px;
+    /* Distance from the bottom */
+    cursor: pointer;
+    color: white;
+
+}
+
+
+.lpBtn button:hover {
+    color: WHITE;
+    background-color: black;
+    border: 3px solid white;
+}
+
+
+
+.whitespace {
+    width: 100%;
+    height: 20%;
+}
+
+
+.floating-button {
+    position: fixed;
+    width: 4pc;
+    height: 4pc;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px;
+    font-size: 20px;
+    background-color: maroon;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floating-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+    background-color: white;
+    color: maroon;
+    font-size: 25px;
+    transition: transform 0.2s ease
+}
+
+
+.container-head {
+    width: 100%;
+    margin: 0 auto;
+    background-color: maroon;
+    border-top:3px solid white;
+    border-bottom:3px solid white;
+  
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.con-img img {
+    height: 300px;
+}
+
+.container-head h1 {
+    color: white;
+    font-size: 40px;
+}
+
+.container-head p {
+    color: white;
+    font-size: 20px;
+}
+.con-description{
+    margin-left: 150px;
+}
+
+
+
+
+
+
+.container {
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("../img/bg1.png");
+    
+
+}
+
+.con-file {
+    background-color: white;
+    border: 5px solid #999;
+    height: auto;
+    width: 50%;
+    border-radius: 10px;
+    padding: 110px;
+    margin: 0 auto;
+    filter: drop-shadow(10px 10px 2px #999);
+   
+}
+
+.file-box {
+    width: 100%;
+
+    border: 2px solid #999;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.con-file label {
+    color: white;
+}
+
+
+
+
+
+#uploadForm {
+    padding: 20px;
+
+}
+
+#fileName {
+    width: 30%;
+    background-color: maroon;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #999;
+}
+
+
+
+
+h1 {
+    font-size: 24px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+input[type="file"] {
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+button {
+    background-color: maroon;
+    color: white;
+    border: none;
+    height: 2.5pc;
+    width: 10pc;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+}
+
+
+
+#result {
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+#result button {
+    margin-top: 50px;
+}
+
+#downloadLink {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: maroon;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+#downloadLink:hover {
+    background-color: #999;
+    color: white;
+
+}
+
+
+#voices {
+    width: 70%;
+    height: 2pc;
+    border-radius: 20px;
+    text-align: center;
+    background-color: maroon;
+    color: white;
+    font-weight: 600;
+    padding: 2px;
+    border: none;
+}
+
+
+label {
+    text-transform: uppercase;
+    color: black;
+}
+
+.file-box {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.file-box.highlight {
+    background-color: #f0f8ff;
+    border-color: #007bff;
+}
+
+#dragMessage {
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+    margin-top: 10px;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+</head>
+<body>
+    <div class="container">
+
+        <div class="side-pages">
+            <img src="../static/img/ub.png" alt="UB Logo">
+            <div class="side-links">
+                <a href="/LandingPage">Home</a>
+                <a href="/convert">Convert</a>
+                <a href="/lesson">Lesson</a>
+                <a id="logoutButton" style="cursor: pointer;">Logout</a>
+            </div>
+        </div>
+        
+        <div class="profile-container">
+            <div class="profile-content">
+                <h1 style="text-transform: uppercase; background-color: maroon; color: white; padding: 10px; margin-top: -150px;  filter: drop-shadow(10px 10px 2px #999);" >Profile</h1>
+                <div class="profile-details">
+                    <div class="profile-image">
+                        <!-- Profile Icon -->
+                        <img src="../static/img/userProfile.jpg" alt="Profile Icon" id="profile-icon" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
+                        <!-- Upload Picture Input -->
+                        <input type="file" id="upload-picture" accept="image/*" style="margin-top: 10px;">
+                        <!-- Save Button -->
+                        <button id="save-picture">Save</button>
+                    </div>
+                    <div class="profile-info">
+                        <h2>User ID: <span id="user-id">Loading...</span></h2>
+                        <h2>Name: <span id="user-name">Loading...</span></h2>
+                        <!-- <h2>Bookmarks saved: </h2> -->
+                        <center><button>Edit</button></center>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        
+        <script src="script.js"></script>
+        <script src="{{ url_for('static', filename='credentials.js') }}"></script>
+</body>
+</html>

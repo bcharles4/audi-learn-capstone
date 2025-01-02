@@ -1,0 +1,237 @@
+* {
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    height: 100vh;
+
+    background-image: url("../img/bg_convert.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.navbar {
+    width: 100%;
+    height: auto;
+    background-color: maroon;
+
+    text-transform: uppercase;
+}
+
+
+
+.navbar ul {
+    display: flex;
+    padding: 20px;
+}
+
+.navbar li {
+    list-style: none;
+    margin: 10px;
+    padding: 20px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.navbar li a {
+    color: white;
+    text-decoration: none;
+}
+
+
+
+.navbar li a:hover {
+    font-size: 40px;
+    transform: translateY(-5px);
+    
+    font-size: 20px;
+
+}
+
+.logo {
+    width: 20%;
+    height: 3vh;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: 30px;
+
+}
+
+.logo img {
+    padding: 20px;
+    width: auto;
+    height: auto;
+}
+
+
+.floating-button {
+    position: fixed;
+    width: 4pc;
+    height: 4pc;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px;
+    font-size: 20px;
+    background-color: maroon;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .floating-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+    background-color: white;
+    color: maroon;
+    font-size: 25px;
+    transition: transform 0.2s ease
+  }
+
+
+
+
+/* Container styling */
+.container {
+ width: 100%;
+ height: 100vh;
+
+}
+
+.con-card {
+ width: 80%;
+ height: 50vh;
+ gap: 30px;
+ display: flex;
+ justify-content: flex-end;
+ margin: 0 auto;
+ 
+}
+
+.head-con {
+    margin: 20px;
+    background-color: #999;
+    position: relative; /* Change to absolute if needed */
+    z-index: -1; /* Places it behind other elements */
+}
+
+.head-con h1 {
+    padding: 10px;
+    background-color: maroon;
+    color: white;
+}
+
+/* Books Grid Styling */
+.books-grid {
+    
+    /* Fixed 3 columns */
+    gap: 0px;
+    width: 40%;
+    height: 20%;
+    max-width: 900px;
+
+    /* Controls the grid's max width */
+}
+
+.book-card {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s;
+    filter: drop-shadow(14px 14px 2px #999);
+    border: 10px solid maroon;
+}
+
+.book-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.book-card h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.book-card p {
+    color: #555;
+    font-size: 0.9em;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+}
+
+
+/* Bookmark Button */
+#bookmark-button {
+    background-color: maroon;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+#bookmark-button:hover {
+    background-color: darkred;
+}
+
+/* Bookmark Container Items */
+#bookmark-container ul li {
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+}
+
+#bookmark-container ul li:last-child {
+    border-bottom: none;
+}
+
+#bookmark-container button {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.selected {
+    border: 2px solid maroon;  /* Change to your desired color */
+    padding: 5px;  /* Optional, if you want to add some space around the paragraph */
+}
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .books-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .books-grid {
+        grid-template-columns: 1fr;
+        /* 1 column for very small screens */
+    }
+}

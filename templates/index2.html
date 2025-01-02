@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Text to Audio Converter</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/credentials.css') }}">
+      </head>
+      
+      <body>
+        <div class="navbar">
+          <ul>
+            <div class="logo">
+              <img src="../static/img/ublogo.png" alt="University Logo">
+            </div>
+            <li><a href="/LandingPage">Home</a></li>
+            <li><a href="/convert">Convert</a></li>
+            <li><a href="/book">Lessons</a></li>
+            <li id="userContainer">
+              <img src="/static/img/user.png" alt="User Icon" id="userIcon">
+              <div id="userDropdown">
+                  <p id="usernameDisplay">Username</p>
+                  <p style="font-size: 12px; margin-top: -10px;">User ID: <span id="userIDDisplay">000000</span></p>
+                  <a href="/profile"><button id="profileButton">Profile</button></a>
+                  <button id="logoutButton">Logout</button>
+              </div>
+          </li>          
+          </ul>
+        </div>
+        
+      
+        <div class="lpBtn">
+          <center><button id="btnLogin" onclick="window.location.href='/convert'">START</button></center>
+        </div>
+      
+        <div class="whitespace"></div>
+      
+        <!-- <button class="floating-button" onclick="window.location.href='#fileC'"><ion-icon name="mic"></ion-icon></button> -->
+      
+        <!-- Dimmed background overlay -->
+        <div class="overlay" id="overlay"></div>
+      
+        <!-- Login Form -->
+        <div class="login-con" id="login">
+          <div class="login-head">
+              <h1>Login</h1>
+              <ion-icon name="close-circle" id="close-login" onclick="closeLoginForm(event)"></ion-icon>
+          </div>
+      
+          <!-- Updated form with an ID -->
+          <form id="loginForm" onsubmit="loginUser(event)">
+              <label for="userID">User ID</label><br>
+              <center><input type="text" name="usersID" required><br></center>
+              
+              <label for="password">Password</label><br>
+              <center><input type="password" name="password" required><br></center>
+              
+              <a href="#" style="padding: 5px;" onclick="showForgotForm(event)">Forgot password?</a>
+              <p style="padding: 5px;">Don't have an account? <a href="signup.html" onclick="showSignupForm(event)">Sign up</a></p>
+              
+              <center><button type="submit">Login</button></center>
+          </form>
+      </div>
+      
+        <!-- Signup Form -->
+        <div class="login-con" id="signup">
+          <div class="login-head">
+              <h1>Sign up</h1>
+              <ion-icon name="close-circle" id="close-signup" onclick="closeSignupForm()"></ion-icon>
+          </div>
+      
+          <!-- Updated form with an ID -->
+          <form id="signupForm" onsubmit="registerUser(event)">
+              <label for="userID">User ID</label><br>
+              <center><input type="text" name="usersID" required><br></center>
+              
+              <label for="Fname">First name</label><br>
+              <center><input type="text" name="firstName" required><br></center>
+              
+              <label for="Lname">Last name</label><br>
+              <center><input type="text" name="lastName" required><br></center>
+              
+              <label for="password">Password</label><br>
+              <center><input type="password" name="password" required><br></center>
+              
+              <label for="Cpassword">Confirm password</label><br>
+              <center><input type="password" id="confirmPassword" required><br></center>
+              
+              <p style="padding: 5px;" onclick="showLoginForm(event)">Have an account? <a href="index.html" onclick="showLoginForm(event)">Log in</a></p>
+              
+              <center><button type="submit">Sign up</button></center>
+          </form>
+      </div>
+        
+      
+        <!-- Forgot Password Form -->
+        <div class="login-con" id="forgot">
+          <div class="login-head">
+              <h1>Change password</h1>
+              <ion-icon name="close-circle" id="close-forgot" onclick="closeForgotForm()"></ion-icon>
+          </div>
+      
+          <form id="changePasswordForm" onsubmit="changePassword(event)">
+              <p style="color: black; margin-bottom: 30px;">
+                  <span style="color: maroon;">Instructions: </span><br>
+                  You can now change your password just input your user id and your new password.
+              </p>
+      
+              <label for="userID">User ID</label><br>
+              <center><input type="text" id="userID" name="userID" required><br></center>
+              <label for="Npassword">New Password</label><br>
+              <center><input type="password" id="Npassword" name="Npassword" required><br></center>
+              <center><button type="submit">Change password</button></center>
+          </form>
+      </div>
+
+    
+      
+
+
+      
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script src="{{ url_for('static', filename='credentials.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

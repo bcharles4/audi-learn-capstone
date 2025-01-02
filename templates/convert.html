@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Audio Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/credentials.css') }}">
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <div class="logo">
+                <img src="../static/img/ublogo.png" alt="University Logo">
+            </div>
+            <li><a href="/LandingPage">Home</a></li>
+            <li><a href="/convert">Convert</a></li>
+            <li><a href="/book">Lessons</a></li>
+            <li id="userContainer">
+                <img src="/static/img/user.png" alt="User Icon" id="userIcon">
+                <div id="userDropdown">
+                  <p>Username</p>
+                  <p style="font-size: 12px;  margin-top: -10px;">User ID: <span>000000</span></p>
+                  <a href="/profile"><button id="profileButton">Profile</button></a>
+                  <button id="logoutButton">Logout</button>
+                </div>
+              </li>
+        </ul>
+    </div>  
+    <div class="container-head">
+        <div class="con-description">
+            <h1>  FILE to AUDIO converter</h1>
+            <p>Convert your file from Portable Document Format to MPEG Layer 3 Audio with this PDF to MP3 converter.
+                Unlock the power of seamless file-to-text conversion. With Audio Learn, you can easily transform your documents whether they are PDFs, Word files, or other formats into clear, readable text in just a few clicks. Designed for Students, Professionals, and Educators, Audio Learn helps you save time and improve productivity. 
+            </p>
+        </div>
+
+        <div class="con-img">
+            <img src="{{ url_for('static', filename='img/filebg.png') }}" alt="Convert Image">
+            </div>
+
+     
+    </div>
+
+    <div class="container">
+        
+
+
+        <div class="con-file" id="fileC">
+            <div class="file-box" id="dropArea">
+               
+                <p id="dragMessage">Upload or Drag files in here.....</p>
+            </div>
+
+            <form id="uploadForm" enctype="multipart/form-data">
+                <!-- Voice Selection Dropdown -->
+                <label for="voices" style="color: black; font-weight: bold; font-size: 14px;">Choose a voice:</label>
+                <select id="voices" name="voice_id"></select>
+
+                <br><br>
+                <!-- "UPLOAD" button -->
+                <center>
+                    <button type="button" id="uploadBtn">Upload</button>
+                    <input type="file" id="fileInput" name="file" accept=".txt, .pdf, .docx" required
+                        style="display: none;">
+                    <button type="submit" id="convertBtn">Convert to Audio</button>
+                </center>
+            </form>
+
+            <p id="fileName" style="display: none;">SELECTED: <span id="fileDisplay"></span></p>
+
+            <div id="result" style="display: none;">
+                <h2>EXTRACTED TEXT:</h2>
+                <textarea id="textPreview" rows="10" cols="120" readonly></textarea>
+
+                <h2></h2>
+                <center>
+                <button id="readAloudBtn">Read Aloud</button>
+                <button id="pauseBtn" style="display:none;">Pause</button>
+          
+                <button id="resumeBtn" style="display:none;">Resume</button>
+                <button id="stopBtn" style="display:none;">Stop</button>
+                <a id="downloadLink" href="#" download>Download Audio</a>
+                 </center>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- <button class="floating-button" onclick="window.location.href='#fileC'"><ion-icon name="mic"></ion-icon></button> -->
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+
+    <script>
+        let audio; // Global Audio object for managing playback
+        // Display selected file name
+        document.getElementById('fileInput').addEventListener('change', function () {
+            if (this.files.length > 0) {
+                const fileName = this.files[0].name;
+                document.getElementById('fileName').style.display = 'block';
+                document.getElementById('fileDisplay').textContent = fileName;
+            }
+        });
+
+        // Fetch available voices and populate the dropdown
+        fetch('/get_voices')
+            .then(response => response.json())
+            .then(data => {
+                const voiceSelect = document.getElementById('voices');
+                data.forEach(voice => {
+                    const option = document.createElement('option');
+                    option.value = voice.id;
+                    option.textContent = voice.name;
+                    voiceSelect.appendChild(option);
+                });
+            })
+            .catch(() => alert('Error fetching voice data. Please try again.'));
+
+        // Form submission handler for conversion
+        document.getElementById('uploadForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const fileInput = document.getElementById('fileInput');
+            const voiceSelect = document.getElementById('voices');
+
+            if (!fileInput.files[0]) {
+                alert('Please upload a file.');
+                return;
+            }
+            if (!voiceSelect.value) {
+                alert('Please select a voice.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+            formData.append('voice_id', voiceSelect.value);
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData,
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.text) {
+                        document.getElementById('result').style.display = 'block';
+                        document.getElementById('textPreview').value = data.text;
+
+                        const downloadLink = document.getElementById('downloadLink');
+                        downloadLink.href = data.audio_url;
+                        downloadLink.textContent = 'Download Audio';
+                    } else {
+                        alert('Error during file processing.');
+                    }
+                })
+                .catch(() => alert('Error during file processing.'));
+        });
+
+        document.getElementById('readAloudBtn').addEventListener('click', function () {
+            const text = document.getElementById('textPreview').value;
+            const voiceId = document.getElementById('voices').value;
+
+            fetch('/read_text_aloud', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text, voice_id: voiceId }),
+            })
+                .then(response => {
+                    if (response.status === 200) {
+                        response.blob().then(blob => {
+                            const audioURL = URL.createObjectURL(blob);
+                            audio = new Audio(audioURL);
+                            audio.play();
+
+                            // Show control buttons
+                            document.getElementById('pauseBtn').style.display = 'inline-block';
+                            document.getElementById('stopBtn').style.display = 'inline-block';
+                            document.getElementById('resumeBtn').style.display = 'none';
+
+                            // Reset buttons on audio end
+                            audio.addEventListener('ended', resetButtons);
+                        });
+                    } else {
+                        alert('Error reading text aloud.');
+                    }
+                })
+                .catch(() => alert('Error reading text aloud.'));
+        });
+
+        document.getElementById('pauseBtn').addEventListener('click', function () {
+            if (audio) {
+                audio.pause();
+                document.getElementById('resumeBtn').style.display = 'inline-block';
+                document.getElementById('pauseBtn').style.display = 'none';
+            }
+        });
+
+        document.getElementById('resumeBtn').addEventListener('click', function () {
+            if (audio) {
+                audio.play();
+                document.getElementById('pauseBtn').style.display = 'inline-block';
+                document.getElementById('resumeBtn').style.display = 'none';
+            }
+        });
+
+        document.getElementById('stopBtn').addEventListener('click', function () {
+            if (audio) {
+                audio.pause();
+                audio.currentTime = 0;
+                resetButtons();
+            }
+        });
+
+        function resetButtons() {
+            document.getElementById('pauseBtn').style.display = 'none';
+            document.getElementById('resumeBtn').style.display = 'none';
+            document.getElementById('stopBtn').style.display = 'none';
+        }
+
+        // Drag-and-Drop File Handling
+        const dropArea = document.getElementById('dropArea');
+        const fileInput = document.getElementById('fileInput');
+        const dragMessage = document.getElementById('dragMessage');
+
+        // Prevent default behavior for drag events
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(event => {
+            dropArea.addEventListener(event, (e) => e.preventDefault());
+            dropArea.addEventListener(event, (e) => e.stopPropagation());
+        });
+
+        // Highlight the drop area on drag over
+        ['dragenter', 'dragover'].forEach(event => {
+            dropArea.addEventListener(event, () => {
+                dropArea.classList.add('highlight');
+                dragMessage.textContent = 'Release to upload the file';
+            });
+        });
+
+        // Remove highlight on drag leave or drop
+        ['dragleave', 'drop'].forEach(event => {
+            dropArea.addEventListener(event, () => {
+                dropArea.classList.remove('highlight');
+                dragMessage.textContent = 'Drag files here';
+            });
+        });
+
+        // Handle file drop
+        dropArea.addEventListener('drop', (event) => {
+            const droppedFiles = event.dataTransfer.files;
+            if (droppedFiles.length) {
+                fileInput.files = droppedFiles; // Attach files to file input
+                const fileName = droppedFiles[0].name;
+                document.getElementById('fileName').style.display = 'block';
+                document.getElementById('fileDisplay').textContent = fileName;
+            }
+        });
+    </script>
+      <script src="{{ url_for('static', filename='credentials.js') }}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

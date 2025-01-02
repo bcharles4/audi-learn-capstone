@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="../static/css/styles2.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/credentials.css') }}">
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <div class="logo">
+                <img src="../static/img/ublogo.png" alt="University Logo">
+            </div>
+            <li><a href="/LandingPage">Home</a></li>
+            <li><a href="/convert">Convert</a></li>
+            <li><a href="/book">Lessons</a></li>
+            <li id="userContainer">
+                <img src="/static/img/user.png" alt="User Icon" id="userIcon">
+                <div id="userDropdown">
+                  <p>Username</p>
+                  <p style="font-size: 12px; margin-top: -15px;">User ID: <span>000000</span></p>
+                  <a href="/profile"><button id="profileButton">Profile</button></a>
+                  <button id="logoutButton">Logout</button>
+                </div>
+              </li>
+        </ul>
+    </div>
+
+    <button class="toc-toggle-btn" id="tocToggleBtn">☰ Table of Contents</button>
+
+    <div class="toc-container" id="tocContainer">
+        <div class="toc-header">
+            Table of Contents
+        </div>
+        <div class="toc-content">
+            <ul>
+                <li>
+                    Chapter 1: Political Law and the Constitution
+                    <ul>
+                        <li><a href="/lesson/laborlaw1">Topic: Introduction, The Constitution, The Importance of the
+                                Constitution</a></li>
+                        <li><a href="/lesson/laborlaw2">Topic: Constitution Is a System of Fundamental Laws</a></li>
+                        <li><a href="/lesson/laborlaw2">Topic: Types of Constitution</a></li>
+                        <li><a href="/lesson/laborlaw2">Topic: Parts of the Constitution</a></li>
+                        <li><a href="/lesson/laborlaw2">Topic: Qualities of a Written Constitution</a></li>
+                        <li><a href="/lesson/laborlaw3">Topic: Doctrine of Constitutional Supremacy</a></li>
+                        <li><a href="/lesson/laborlaw3">Topic: Interpretation of Constitutional Provisions</a></li>
+                        <li><a href="/lesson/laborlaw3">Topic: Constitutional Construction</a></li>
+                        <li><a href="/lesson/laborlaw4">Topic: Self-executing Provisions and the Malolos
+                                Constitution</a></li>
+                        <li><a href="/lesson/laborlaw5">Topic: The 1935 Constitution</a></li>
+                        <li><a href="/lesson/laborlaw6">Topic: The 1943 Constitution</a></li>
+                        <li><a href="/lesson/laborlaw7">Topic: The 1973 Constitution</a></li>
+                        <li><a href="/lesson/laborlaw8">Topic: The 1987 Constitution and Effectivity of the 1987
+                                Constitution</a></li>
+                    </ul>
+                </li>
+                <li>
+                    Chapter 2: The State
+                    <ul>
+                        <li><a href="/lesson/laborlaw9">Topic: Doctrine of Acts of State and Elements of the State</a>
+                        </li>
+                        <li><a href="/lesson/laborlaw10">Topic: People or Permanent Population</a></li>
+                        <li><a href="/lesson/laborlaw10">Topic: Citizens and Subjects</a></li>
+                        <li><a href="/lesson/laborlaw10">Topic: Nationality</a></li>
+                        <li><a href="/lesson/laborlaw11">Topic: Definite Territory</a></li>
+                        <li><a href="/lesson/laborlaw11">Topic: The Terrestrial or Land Domain</a></li>
+                        <li><a href="/lesson/laborlaw11">Topic: Exemption from Territorial Jurisdiction</a></li>
+                        <li><a href="/lesson/laborlaw12">Topic: The Polar Regions</a></li>
+                        <li><a href="/lesson/laborlaw12">Topic: The Doctrine of Effective Occupation</a></li>
+                        <li><a href="/lesson/laborlaw12">Topic: Aerial Domain</a></li>
+                        <li><a href="/lesson/laborlaw13">Topic: Jurisdiction over Aerial Domain</a></li>
+                        <li><a href="/lesson/laborlaw13">Topic: International Convention on Civil Aviation</a></li>
+                        <li><a href="/lesson/laborlaw13">Topic: Five Air Freedoms</a></li>
+                        <li><a href="/lesson/laborlaw14">Topic: Outer Space and Jurisdiction over Outer Space The Outer
+                                Space
+                                Treaty</a></li>
+                        <li><a href="/lesson/laborlaw14">Topic: The Outer Space Treaty</a></li>
+                        <li><a href="/lesson/laborlaw15">Topic: The Convention on Registration of Launched Objects into
+                                Outer
+                                Space</a></li>
+                        <li><a href="/lesson/laborlaw16">Topic: The Maritime or Fluvial Domain</a></li>
+                        <li><a href="/lesson/laborlaw16">Topic: Archipelago Doctrine</a></li>
+                        <li><a href="/lesson/laborlaw17">Topic: United Nations Conventions on the Laws of the Sea</a>
+                        </li>
+                        <li><a href="/lesson/laborlaw18">Topic: Internal Waters and Straight Baseline Method</a></li>
+                        <li><a href="/lesson/laborlaw18">Topic: Archipelagic Waters and Territorial Sea</a></li>
+                        <li><a href="/lesson/laborlaw19">Topic: Right of Innocent Passage</a></li>
+                        <li><a href="/lesson/laborlaw20">Topic: Contiguous Zone</a></li>
+                        <li><a href="/lesson/laborlaw20">Topic: Exclusive Economic Zone</a></li>
+                        <li><a href="/lesson/laborlaw20">Topic: Jurisdiction over Exclusive Economic Zone</a></li>
+                        <li><a href="/lesson/laborlaw21">Topic: Continental Shelf and Jurisdiction over the Continental
+                                Shelf</a></li>
+                        <li><a href="/lesson/laborlaw22">Topic: The International Tribunal on the Laws of the Sea</a>
+                        </li>
+                        <li><a href="/lesson/laborlaw23">Topic: Philippine Baselines Laws</a></li>
+                        <li><a href="/lesson/laborlaw23">Topic: Republic Act Number 5446</a></li>
+                        <li><a href="/lesson/laborlaw23">Topic: Republic Act Number 9522</a></li>
+                        <li><a href="/lesson/laborlaw23">Topic: Regime of Islands</a></li>
+                        <li><a href="/lesson/laborlaw24">Topic: Magallona versus Ermita, G.R. No. 187167, July 16,
+                                2011</a></li>
+                        <li><a href="/lesson/laborlaw27">Topic: Kalayaan Islands and Scarborough Shoal</a></li>
+                        <li><a href="/lesson/laborlaw28">Topic: Republic of the Philippines versus People's Republic of
+                                China (PCA Case No. 2013-19)</a></li>
+                        <li><a href="/lesson/laborlaw30">Topic: The Sabah Issue</a></li>
+                        <li><a href="/lesson/laborlaw31">Topic: Government and Form of Government</a></li>
+                        <li><a href="/lesson/laborlaw32">Topic: Other Forms of Government</a></li>
+                        <li><a href="/lesson/laborlaw33">Topic: Estrada vs. Arroyo, G.R. No. 146738, March 2, 2001</a>
+                        </li>
+                        <li><a href="/lesson/laborlaw34">Topic: Effect of Change in Government</a></li>
+                        <li><a href="/lesson/laborlaw34">Topic: Doctrine of Parens Patriae</a></li>
+                        <li><a href="/lesson/laborlaw34">Topic: D. Sovereignty</a></li>
+                        <li><a href="/lesson/laborlaw35">Topic: Province of North Cotabato vs. Government of the
+                                Republic of the Philippines, G.R. No. 183591, October 14, 2008</a>
+                        </li>
+                        <li><a href="/lesson/laborlaw36">Topic: Kinds of Sovereignty</a></li>
+                        <li><a href="/lesson/laborlaw36">Topic: Is Sovereignty Absolute?</a></li>
+                        <li><a href="/lesson/laborlaw36">Topic: Effect of Change in Sovereignty</a></li>
+                        <li><a href="/lesson/laborlaw37">Topic: The Principle of State Continuity</a></li>
+                        <li><a href="/lesson/laborlaw37">Topic: Creation of New State</a></li>
+                        <li><a href="/lesson/laborlaw37">Topic: Extinction of State</a></li>
+                    </ul>
+                </li>
+                <li>
+                    Chapter 3: Principles and State Policies
+                    <ul>
+                        <li><a href="/lesson/laborlaw38">Topic: Republicanism and Renunciation of War</a></li>
+                        <li><a href="/lesson/laborlaw39">Topic: Doctrine of Incorporation</a></li>
+                        <li><a href="/lesson/laborlaw39">Topic: Supremacy of Civilian Authority</a></li>
+                        <li><a href="/lesson/laborlaw39">Topic: Compulsory Military Service</a></li>
+                        <li><a href="/lesson/laborlaw40">Topic: National Service Training Program</a></li>
+                        <li><a href="/lesson/laborlaw40">Topic: Separation of Church and State</a></li>
+                        <li><a href="/lesson/laborlaw40">Topic: A Commemorative Stamp Commemorating Eucharistic
+                                Congress Is Not a Violation</a></li>
+                        <li><a href="/lesson/laborlaw41">Topic: Social Justice and Human Rights</a></li>
+                        <li><a href="/lesson/laborlaw41">Topic: Sanctity of the Family and Human Dignity</a></li>
+                        <li><a href="/lesson/laborlaw41">Topic: Republic Act No. 10354- The Reproductive Health Law of
+                                2012</a></li>
+                        <li><a href="/lesson/laborlaw42">Topic: The Vital Role of Youth</a></li>
+                        <li><a href="/lesson/laborlaw42">Topic: The Role of Women</a></li>
+                        <li><a href="/lesson/laborlaw43">Topic: Health and Ecology</a></li>
+                        <li><a href="/lesson/laborlaw44">Topic: Education</a></li>
+                        <li><a href="/lesson/laborlaw44">Topic: Academic Freedom</a></li>
+                        <li><a href="/lesson/laborlaw45">Topic: Protection for Labor</a></li>
+                        <li><a href="/lesson/laborlaw45">Topic: Economy Controlled by Filipinos</a></li>
+                        <li><a href="/lesson/laborlaw45">Topic: Agrarian Form</a></li>
+                        <li><a href="/lesson/laborlaw46">Topic: Regalian Doctrine</a></li>
+                        <li><a href="/lesson/laborlaw46">Topic: The Indigenous Cultural Communities</a></li>
+                        <li><a href="/lesson/laborlaw46">Topic: Communication and Information</a></li>
+                        <li><a href="/lesson/laborlaw47">Topic: Local Government Autonomy</a></li>
+                        <li><a href="/lesson/laborlaw47">Topic: Political Dynasty</a></li>
+                        <li><a href="/lesson/laborlaw47">Topic: Honesty and Integrity in Public Service</a></li>
+                        <li><a href="/lesson/laborlaw48">Topic: Policy of Public Disclosure</a></li>
+                    </ul>
+                </li>
+                <li>
+                    Chapter 4: State Immunity from Suit
+                    <ul>
+                        <li><a href="/lesson/laborlaw49">Topic: Reason for Non-suability of the State</a></li>
+                        <li><a href="/lesson/laborlaw49">Topic: Immunity of Foreign States and Diplomats</a></li>
+                        <li><a href="/lesson/laborlaw50">Topic: The Principle of Par In Parem Non Habet Imperium</a>
+                        </li>
+                        <li><a href="/lesson/laborlaw50">Topic: The Vatican Is Immune from Suit</a></li>
+                        <li><a href="/lesson/laborlaw50">Topic: Determination of Immunity by the Department of Foreign
+                                Affairs</a></li>
+                        <li><a href="/lesson/laborlaw51">Topic: Immunity of International Organizations and Agencies</a>
+                        </li>
+                        <li><a href="/lesson/laborlaw51">Topic: Immunity of Government Agencies</a></li>
+                        <li><a href="/lesson/laborlaw51">Topic: Incorporated Government Agencies</a></li>
+                        <li><a href="/lesson/laborlaw52">Topic: Unincorporated Government Agencies</a></li>
+                        <li><a href="/lesson/laborlaw52">Topic: Suits against Public Officers</a></li>
+                        <li><a href="/lesson/laborlaw53">Topic: When the Suit Is Deemed against the State</a></li>
+                        <li><a href="/lesson/laborlaw53">Topic: Consent by the State to Be Sued</a></li>
+                        <li><a href="/lesson/laborlaw53">Topic: Express Consent</a></li>
+                        <li><a href="/lesson/laborlaw54">Topic: Implied Consent</a></li>
+                        <li><a href="/lesson/laborlaw54">Topic: When the State Commences Litigation</a></li>
+                        <li><a href="/lesson/laborlaw54">Topic: When the State Enters into a Business Contract</a></li>
+                        <li><a href="/lesson/laborlaw55">Topic: Juri Imperii</a></li>
+                        <li><a href="/lesson/laborlaw55">Topic: Jure Gestionis</a></li>
+                        <li><a href="/lesson/laborlaw55">Topic: Suability Not Outright Liability</a></li>
+                        <li><a href="/lesson/laborlaw56">Topic: Consent to Be Sued Does Not Include Consent to
+                                Execution</a></li>
+                        <li><a href="/lesson/laborlaw56">Topic: Immunity Cannot Be Used to Perpetrate Injustice</a></li>
+                        <li><a href="/lesson/laborlaw56">Topic: Immunity from Suit Cannot Be Used to Institutionalize
+                                Irresponsibility</a></li>
+                    </ul>
+                </li>
+                <li>
+                    Chapter 5: Interplay Among the Branches of the Government
+                    <ul>
+                        <li><a href="/lesson/laborlaw57">Topic: Separation of Powers</a></li>
+                        <li><a href="/lesson/laborlaw57">Topic: Checks and Balances</a></li>
+                        <li><a href="/lesson/laborlaw58">Topic: Delegation of Powers</a></li>
+                        <li><a href="/lesson/laborlaw58">Topic: Exceptions to Non-delegation Rule</a></li>
+                        <li><a href="/lesson/laborlaw58">Topic: Tests for Valid Delegation</a></li>
+                        <li><a href="/lesson/laborlaw59">Topic: Completeness Test</a></li>
+                        <li><a href="/lesson/laborlaw59">Topic: Sufficient Standards Test</a></li>
+                        <li><a href="/lesson/laborlaw59">Topic: Both Tests Are Required</a></li>
+                        <li><a href="/lesson/laborlaw60">Topic: Extent of the Power of Congress to Delegate</a></li>
+                        <li><a href="/lesson/laborlaw60">Topic: Blending of Powers</a></li>
+                    </ul>
+                </li>
+                <li>
+                    Chapter 6: Legislative Department
+                    <ul>
+                        <li><a href="/lesson/laborlaw61">Topic: Legislative Power</a></li>
+                        <li><a href="/lesson/laborlaw61">Topic: Congress Is a Bicameral Body</a></li>
+                        <li><a href="/lesson/laborlaw61">Topic: Advantages of Bicameral Legislature</a></li>
+                        <li><a href="/lesson/laborlaw62">Topic: Disadvantages of Bicameral Legislature</a></li>
+                        <li><a href="/lesson/laborlaw62">Topic: The Senate</a></li>
+                        <li><a href="/lesson/laborlaw62">Topic: The House of Representatives</a></li>
+                        <li><a href="/lesson/laborlaw63">Topic: Tenure vs. Term of Office</a></li>
+                        <li><a href="/lesson/laborlaw63">Topic: Residence vs. Domicile</a></li>
+                        <li><a href="/lesson/laborlaw63">Topic: Resident for Not Less Than One Year</a></li>
+                        <li><a href="/lesson/laborlaw64">Topic: Natural-born Citizen</a></li>
+                        <li><a href="/lesson/laborlaw64">Topic: Effects of Repatriation</a></li>
+                        <li><a href="/lesson/laborlaw64">Topic: District Representatives and Questions of
+                                Apportionment</a></li>
+                        <li><a href="/lesson/laborlaw65">Topic: Contiguous, Compact, and Adjacent</a></li>
+                        <li><a href="/lesson/laborlaw65">Topic: Gerrymandering (2014 Bar Examination Question)</a></li>
+                        <li><a href="/lesson/laborlaw65">Topic: Proportional Representation Based on Number of
+                                Inhabitants</a></li>
+                        <li><a href="/lesson/laborlaw66">Topic: Re-apportionment by Congress</a></li>
+                        <li><a href="/lesson/laborlaw66">Topic: Plebiscite Is Not Required</a></li>
+                        <li><a href="/lesson/laborlaw66">Topic: Party-list Representatives</a></li>
+                        <li><a href="/lesson/laborlaw67">Topic: Republic Act No. 7941</a></li>
+                        <li><a href="/lesson/laborlaw67">Topic: Disqualified Sectors</a></li>
+                        <li><a href="/lesson/laborlaw67">Topic: Parameters for the Party-list Election</a></li>
+                        <li><a href="/lesson/laborlaw68">Topic: Determination of the Total Number of Party-List
+                                Lawmakers</a></li>
+                        <li><a href="/lesson/laborlaw68">Topic: The Three-Seat Limitation</a></li>
+                        <li><a href="/lesson/laborlaw68">Topic: Qualifications of Party-List Nominees</a></li>
+                        <li><a href="/lesson/laborlaw69">Topic: The 20% Allocation Is Just a Ceiling</a></li>
+                        <li><a href="/lesson/laborlaw69">Topic: The 20% Allocation Must Be Filled</a></li>
+                        <li><a href="/lesson/laborlaw70">Topic: Marginalized and Underrepresented Sector</a></li>
+                        <li><a href="/lesson/laborlaw70">Topic: New Parameters in Party-list Election</a></li>
+                        <li><a href="/lesson/laborlaw70">Topic: The Names of the Party-List Nominees Shall Be
+                                Published</a></li>
+                        <li><a href="/lesson/laborlaw71">Topic: Privileges of the Members of Congress</a></li>
+                        <li><a href="/lesson/laborlaw71">Topic: Freedom from Arrest</a></li>
+                        <li><a href="/lesson/laborlaw71">Topic: Parliamentary Immunity</a></li>
+                        <li><a href="/lesson/laborlaw72">Topic: Speech and Debate in Congress</a></li>
+                        <li><a href="/lesson/laborlaw72">Topic: Conflict of Interest</a></li>
+                        <li><a href="/lesson/laborlaw72">Topic: Incompatible Office</a></li>
+                        <li><a href="/lesson/laborlaw73">Topic: Test of Incompatibility</a></li>
+                        <li><a href="/lesson/laborlaw73">Topic: Forbidden Office</a></li>
+                        <li><a href="/lesson/laborlaw73">Topic: PNRC Chairman Is Not a Government Office</a></li>
+                        <li><a href="/lesson/laborlaw74">Topic: Effect of Imprisonment</a></li>
+                        <li><a href="/lesson/laborlaw74">Topic: Sessions and Quorum</a></li>
+                        <li><a href="/lesson/laborlaw75">Topic: Adjournment</a></li>
+                        <li><a href="/lesson/laborlaw75">Topic: Rules of Proceedings</a></li>
+                        <li><a href="/lesson/laborlaw75">Topic: Discipline of Members</a></li>
+                        <li><a href="/lesson/laborlaw76">Topic: Legislative Journal</a></li>
+                        <li><a href="/lesson/laborlaw76">Topic: Enrolled Bill</a></li>
+                        <li><a href="/lesson/laborlaw76">Topic: Recess</a></li>
+                        <li><a href="/lesson/laborlaw77">Topic: Electoral Tribunals</a></li>
+                        <li><a href="/lesson/laborlaw77">Topic: Composition</a></li>
+                        <li><a href="/lesson/laborlaw77">Topic: Independence of the Electoral Tribunal</a></li>
+                        <li><a href="/lesson/laborlaw78">Topic: Powers of the Electoral Tribunals</a></li>
+                        <li><a href="/lesson/laborlaw78">Topic: Jurisdiction over Proclamation Controversy</a></li>
+                        <li><a href="/lesson/laborlaw78">Topic: Commission on Appointments</a></li>
+                        <li><a href="/lesson/laborlaw79">Topic: Composition</a></li>
+                        <li><a href="/lesson/laborlaw79">Topic: Powers and Lawmaking Power</a></li>
+                        <li><a href="/lesson/laborlaw80">Topic: Limitations on the Lawmaking Power</a></li>
+                        <li><a href="/lesson/laborlaw80">Topic: One Bill and One Subject</a></li>
+                        <li><a href="/lesson/laborlaw80">Topic: Sufficiency of Title</a></li>
+                        <li><a href="/lesson/laborlaw81">Topic: Rider Clause</a></li>
+                        <li><a href="/lesson/laborlaw81">Topic: Bills That Must Originate Exclusively from the House</a>
+                        </li>
+                        <li><a href="/lesson/laborlaw81">Topic: Legislative Process</a></li>
+                        <li><a href="/lesson/laborlaw82">Topic: Bicameral Conference Committee</a></li>
+                        <li><a href="/lesson/laborlaw82">Topic: Three Readings on Separate Days</a></li>
+                        <li><a href="/lesson/laborlaw82">Topic: Presidential Veto Power</a></li>
+                        <li><a href="/lesson/laborlaw83">Topic: Item Veto</a></li>
+                        <li><a href="/lesson/laborlaw83">Topic: Pocket Veto</a></li>
+                        <li><a href="/lesson/laborlaw83">Topic: Congressional Veto</a></li>
+                        <li><a href="/lesson/laborlaw84">Topic: Power of the Purse</a></li>
+                        <li><a href="/lesson/laborlaw84">Topic: Implied Limitations on Appropriation Measure</a></li>
+                        <li><a href="/lesson/laborlaw85">Topic: Sub Rosa Appropriation</a></li>
+                        <li><a href="/lesson/laborlaw85">Topic: Prohibition against Transfer of Appropriation</a></li>
+                        <li><a href="/lesson/laborlaw85">Topic: Doctrine of Inappropriate Provisions</a></li>
+                        <li><a href="/lesson/laborlaw86">Topic: Power of Taxation</a></li>
+                        <li><a href="/lesson/laborlaw86">Topic: Investigations in Aid of Legislation</a></li>
+                        <li><a href="/lesson/laborlaw86">Topic: Limitations on Legislative Investigations</a></li>
+                        <li><a href="/lesson/laborlaw87">Topic: Claim of Executive Privilege</a></li>
+                        <li><a href="/lesson/laborlaw87">Topic: Question Hour</a></li>
+                        <li><a href="/lesson/laborlaw87">Topic: Contempt Powers</a></li>
+                        <li><a href="/lesson/laborlaw88">Topic: Imprisonment for Legislative Contempt</a></li>
+                        <li><a href="/lesson/laborlaw88">Topic: Power to Declare Existence of State of War</a></li>
+                        <li><a href="/lesson/laborlaw88">Topic: The Prize Cases</a></li>
+                        <li><a href="/lesson/laborlaw89">Topic: Initiative and Referendum</a></li>
+                        <li><a href="/lesson/laborlaw89">Topic: Initiative to Amend the Constitution</a></li>
+                        <li><a href="/lesson/laborlaw90">Topic: Resolutions as Subjects of Initiative</a></li>
+                        <li><a href="/lesson/laborlaw90">Topic: Recall</a></li>
+                    </ul>
+                </li>
+                <li>
+                    Chapter 7: Executive Department
+                    <ul>
+                        <li><a href="/lesson/laborlaw91">Topic: Executive Power</a></li>
+                        <li><a href="/lesson/laborlaw91">Topic: Natural Born Citizen</a></li>
+                        <li><a href="/lesson/laborlaw91">Topic: Executive Powers of the President</a></li>
+                        <li><a href="/lesson/laborlaw92">Topic: Qualifications of the President</a></li>
+                        <li><a href="/lesson/laborlaw92">Topic: Citizenship of a Foundling</a></li>
+                        <li><a href="/lesson/laborlaw93">Topic: Residency Requirement</a></li>
+                        <li><a href="/lesson/laborlaw93">Topic: Qualifications of the Vice President</a></li>
+                        <li><a href="/lesson/laborlaw93">Topic: Election</a></li>
+                        <li><a href="/lesson/laborlaw94">Topic: Election Protest of Fernando Poe, Jr.</a></li>
+                        <li><a href="/lesson/laborlaw94">Topic: Term of Office</a></li>
+                        <li><a href="/lesson/laborlaw94">Topic: Oath of Office</a></li>
+                        <li><a href="/lesson/laborlaw95">Topic: Official Residence and Salary</a></li>
+                        <li><a href="/lesson/laborlaw95">Topic: Presidential Immunity</a></li>
+                        <li><a href="/lesson/laborlaw95">Topic: Immunity of a Former President</a></li>
+                        <li><a href="/lesson/laborlaw96">Topic: Prohibited Acts</a></li>
+                        <li><a href="/lesson/laborlaw96">Topic: Rules on Succession</a></li>
+                        <li><a href="/lesson/laborlaw96">Topic: Vacancy at the Beginning of Term</a></li>
+                        <li><a href="/lesson/laborlaw97">Topic: Vacancy during the Term of Office</a></li>
+                        <li><a href="/lesson/laborlaw97">Topic: Vacancy in the Office of the Vice President</a></li>
+                        <li><a href="/lesson/laborlaw97">Topic: Vacancy in the Offices of President and Vice
+                                President</a></li>
+                        <li><a href="/lesson/laborlaw98">Topic: Constitutional Procedure in Filling Up the Vacancy</a>
+                        </li>
+                        <li><a href="/lesson/laborlaw98">Topic: Removal of the President</a></li>
+                        <li><a href="/lesson/laborlaw98">Topic: The Inability of President Estrada</a></li>
+                        <li><a href="/lesson/laborlaw99">Topic: Did President Estrada Resign?</a></li>
+                        <li><a href="/lesson/laborlaw99">Topic: Legislative Powers of the President</a></li>
+                        <li><a href="/lesson/laborlaw99">Topic: Power to Prosecute Crimes</a></li>
+                        <li><a href="/lesson/laborlaw100">Topic: Power of Appointment</a></li>
+                        <li><a href="/lesson/laborlaw100">Topic: Classes of Appointment</a></li>
+                        <li><a href="/lesson/laborlaw100">Topic: Appointments to Philippine National Police</a></li>
+                        <li><a href="/lesson/laborlaw101">Topic: Regular Appointment</a></li>
+                        <li><a href="/lesson/laborlaw101">Topic: Ad Interim Appointment</a></li>
+                        <li><a href="/lesson/laborlaw102">Topic: Termination of an Ad Interim Appointment</a></li>
+                        <li><a href="/lesson/laborlaw102">Topic: By-passed Ad Interim Appointmentt</a></li>
+                        <li><a href="/lesson/laborlaw102">Topic: Permanent Appointment</a></li>
+                        <li><a href="/lesson/laborlaw103">Topic: Temporary Appointment</a></li>
+                        <li><a href="/lesson/laborlaw103">Topic: Acting Appointment</a></li>
+                        <li><a href="/lesson/laborlaw103">Topic: Midnight Appointment</a></li>
+                        <li><a href="/lesson/laborlaw104">Topic: Midnight Appointment Prohibition Is Not Applicable in
+                                the Judiciary</a></li>
+                        <li><a href="/lesson/laborlaw104">Topic: Power of Removal</a></li>
+                        <li><a href="/lesson/laborlaw104">Topic: Independence of the Ombudsman</a></li>
+                        <li><a href="/lesson/laborlaw105">Topic: Power of Control</a></li>
+                        <li><a href="/lesson/laborlaw105">Topic: Control vs. Supervision</a></li>
+                        <li><a href="/lesson/laborlaw105">Topic: Alter-ego Principle or Doctrine of Qualified Political
+                                Agency</a></li>
+                        <li><a href="/lesson/laborlaw106">Topic: Power over the Local Government Units</a></li>
+                        <li><a href="/lesson/laborlaw106">Topic: The Executive Secretary</a></li>
+                        <li><a href="/lesson/laborlaw106">Topic: Military Powers of the President</a></li>
+                        <li><a href="/lesson/laborlaw107">Topic: Commander-in-Chief Clause</a></li>
+                        <li><a href="/lesson/laborlaw107">Topic: Graduated Military Powers</a></li>
+                        <li><a href="/lesson/laborlaw107">Topic: Calling Out the Armed Forces</a></li>
+                        <li><a href="/lesson/laborlaw108">Topic: Calling Out Power Is Not Subject to Judicial Review</a>
+                        </li>
+                        <li><a href="/lesson/laborlaw108">Topic: Declaration of Martial Law</a></li>
+                        <li><a href="/lesson/laborlaw108">Topic: Requisites for the Declaration of Martial Law</a></li>
+                        <li><a href="/lesson/laborlaw109">Topic: Extension of Martial Law</a></li>
+                        <li><a href="/lesson/laborlaw109">Topic: Suspension of the Privilege of the Writ of Habeas
+                                Corpus</a></li>
+                        <li><a href="/lesson/laborlaw110">Topic: Pardoning Power</a></li>
+                        <li><a href="/lesson/laborlaw110">Topic: Effects of Pardon to a Public Officer</a></li>
+                        <li><a href="/lesson/laborlaw110">Topic: Pardon Is Forgiveness, Not Forgetfulness</a></li>
+                        <li><a href="/lesson/laborlaw111">Topic: Kinds of Pardon</a></li>
+                        <li><a href="/lesson/laborlaw111">Topic: Limitations on the Pardoning Power</a></li>
+                        <li><a href="/lesson/laborlaw111">Topic: Amnesty</a></li>
+                        <li><a href="/lesson/laborlaw112">Topic: Pardon vs. Amnesty</a></li>
+                        <li><a href="/lesson/laborlaw112">Topic: Reprieve and Commutation</a></li>
+                        <li><a href="/lesson/laborlaw112">Topic: Parole</a></li>
+                        <li><a href="/lesson/laborlaw113">Topic: Borrowing Power</a></li>
+                        <li><a href="/lesson/laborlaw113">Topic: Diplomatic Power</a></li>
+                        <li><a href="/lesson/laborlaw113">Topic: Treaty</a></li>
+                        <li><a href="/lesson/laborlaw114">Topic: The Visiting Forces Agreement</a></li>
+                        <li><a href="/lesson/laborlaw114">Topic: Executive Agreement</a></li>
+                        <li><a href="/lesson/laborlaw114">Topic: Executive Agreements Need No Senate Concurrence</a>
+                        </li>
+                        <li><a href="/lesson/laborlaw115">Topic: Budgetary Powers</a></li>
+                        <li><a href="/lesson/laborlaw115">Topic: Power to Impound</a></li>
+                        <li><a href="/lesson/laborlaw115">Topic: Impoundment</a></li>
+                        <li><a href="/lesson/laborlaw116">Topic: Informing Power</a></li>
+                        <li><a href="/lesson/laborlaw116">Topic: Discretionary Power</a></li>
+                        <li><a href="/lesson/laborlaw116">Topic: Residual Powers</a></li>
+                    </ul>
+                </li>
+                <li>
+                    Chapter 8: Judicial Department
+                    <ul>
+                        <li><a href="/lesson/laborlaw117">Topic: Judicial Power</a></li>
+                        <li><a href="/lesson/laborlaw117">Topic: Expanded Power of Judicial Review</a></li>
+                        <li><a href="/lesson/laborlaw117">Topic: Grave Abuse of Discretion</a></li>
+                        <li><a href="/lesson/laborlaw118">Topic: Power of Judicial Review</a></li>
+                        <li><a href="/lesson/laborlaw118">Topic: Judicial Review of Impeachment Cases</a></li>
+                        <li><a href="/lesson/laborlaw118">Topic: Judicial Supremacy</a></li>
+                        <li><a href="/lesson/laborlaw119">Topic: Constitutional Supremacy</a></li>
+                        <li><a href="/lesson/laborlaw119">Topic: Political Question Doctrine</a></li>
+                        <li><a href="/lesson/laborlaw119">Topic: Justiciable Question</a></li>
+                        <li><a href="/lesson/laborlaw120">Topic: Requisites of Judicial Review</a></li>
+                        <li><a href="/lesson/laborlaw120">Topic: Actual Case or Controversy</a></li>
+                        <li><a href="/lesson/laborlaw120">Topic: Ripeness for Adjudication</a></li>
+                        <li><a href="/lesson/laborlaw121">Topic: Mootness</a></li>
+                        <li><a href="/lesson/laborlaw121">Topic: Ripeness vs. Mootness</a></li>
+                        <li><a href="/lesson/laborlaw121">Topic: Proper Party</a></li>
+                        <li><a href="/lesson/laborlaw122">Topic: Real-Party-in Interest</a></li>
+                        <li><a href="/lesson/laborlaw122">Topic: Representational Standing</a></li>
+                        <li><a href="/lesson/laborlaw122">Topic: Class Suit</a></li>
+                        <li><a href="/lesson/laborlaw123">Topic: Class Suit of a Stockholder</a></li>
+                        <li><a href="/lesson/laborlaw123">Topic: Jus Tertii Standing the Public</a></li>
+                        <li><a href="/lesson/laborlaw123">Topic: Class Transcendental Importance to the Public</a></li>
+                        <li><a href="/lesson/laborlaw124">Topic: Standing of Members of Congress</a></li>
+                        <li><a href="/lesson/laborlaw124">Topic: Standing of Integrated Bar of the Philippines</a></li>
+                        <li><a href="/lesson/laborlaw124">Topic: Standing of the Government to Question its Own Laws</a>
+                        </li>
+                        <li><a href="/lesson/laborlaw125">Topic: Taxpayer's Suits</a></li>
+                        <li><a href="/lesson/laborlaw125">Topic: Concerned Citizens' Suit</a></li>
+                        <li><a href="/lesson/laborlaw125">Topic: Question Must Be Raised at the Earliest Possible
+                                Opportunity</a></li>
+                        <li><a href="/lesson/laborlaw126">Topic: Constitutional Question Must Be the Very "Lis Mota" of
+                                the Case</a></li>
+                        <li><a href="/lesson/laborlaw126">Topic:Functions of Judicial Review</a></li>
+                        <li><a href="/lesson/laborlaw126">Topic: Adjudicative Pragmatism</a></li>
+                        <li><a href="/lesson/laborlaw127">Topic: Doctrine of Purposeful Hesitatio</a></li>
+                        <li><a href="/lesson/laborlaw127">Topic: Effects of Declaration of Unconstitutionality</a></li>
+                        <li><a href="/lesson/laborlaw127">Topic: Doctrine of Operative Fact</a></li>
+                        <li><a href="/lesson/laborlaw128">Topic: Jurisdiction</a></li>
+                        <li><a href="/lesson/laborlaw129">Topic: Appellate Jurisdiction of the Supreme Court</a></li>
+                        <li><a href="/lesson/laborlaw129">Topic: Cases to Be Heard by the Court En Banc</a></li>
+                        <li><a href="/lesson/laborlaw129">Topic: Case vs. Matter</a></li>
+                        <li><a href="/lesson/laborlaw130">Topic: Review of Death Penalty</a></li>
+                        <li><a href="/lesson/laborlaw130">Topic: Independence of the Judiciary</a></li>
+                        <li><a href="/lesson/laborlaw130">Topic: Constitutional Safeguards to Insure Judicial
+                                Independence</a></li>
+                        <li><a href="/lesson/laborlaw131">Topic: Fiscal Autonomy</a></li>
+                        <li><a href="/lesson/laborlaw131">Topic: Appointment to the Judiciary</a></li>
+                        <li><a href="/lesson/laborlaw131">Topic: Appointments to the Judiciary Not Covered by Election
+                                Ban</a></li>
+                        <li><a href="/lesson/laborlaw132">Topic: Judicial and Bar Council</a></li>
+                        <li><a href="/lesson/laborlaw132">Topic: A Representative of Congress in the Judicial and Bar
+                                Council</a></li>
+                        <li><a href="/lesson/laborlaw132">Topic: The Judicial and Bar Council Is Not a Quasi-Judicial
+                                Body</a></li>
+                        <li><a href="/lesson/laborlaw133">Topic: Composition of the Supreme Court</a></li>
+                        <li><a href="/lesson/laborlaw133">Topic: Qualifications of the Members of the Supreme Court</a>
+                        </li>
+                        <li><a href="/lesson/laborlaw133">Topic: Integrity as a Qualification</a></li>
+                        <li><a href="/lesson/laborlaw134">Topic: Non-filing of SALN Affects Integrity</a></li>
+                        <li><a href="/lesson/laborlaw134">Topic: Supervision over the Judiciary</a></li>
+                        <li><a href="/lesson/laborlaw134">Topic: Rule-making Powers of the Supreme Court</a></li>
+                        <li><a href="/lesson/laborlaw135">Topic: Writ of Amparo</a></li>
+                        <li><a href="/lesson/laborlaw135">Topic: Writ of Habeas Data</a></li>
+                        <li><a href="/lesson/laborlaw135">Topic: Decisions of the Court</a></li>
+                        <li><a href="/lesson/laborlaw136">Topic: Power to Control Execution of Decision</a></li>
+                        <li><a href="/lesson/laborlaw136">Topic: Tenure of Justices and Judges</a></li>
+                        <li><a href="/lesson/laborlaw136">Topic: Removal and Discipline</a></li>
+                        <li><a href="/lesson/laborlaw137">Topic: Members of the Supreme Court May Be Removed by Quo
+                                Warranto</a></li>
+                        <li><a href="/lesson/laborlaw137">Topic: Salaries</a></li>
+                        <li><a href="/lesson/laborlaw137">Topic: Judicial Salary Is Not Tax Exempt</a></li>
+                    </ul>
+                </li>
+                <li>
+                    Chapter 9: Amendments and Revision
+                    <ul>
+                        <li><a href="/lesson/laborlaw138">Topic: Amendments and Revision</a></li>
+                        <li><a href="/lesson/laborlaw139">Topic: Tests to Determine Whether the Proposal Is Amendment or
+                                Revision</a></li>
+                        <li><a href="/lesson/laborlaw139">Topic: Quantitative Test</a></li>
+                        <li><a href="/lesson/laborlaw139">Topic: Qualitative Test</a></li>
+                        <li><a href="/lesson/laborlaw140">Topic: Procedure</a></li>
+                        <li><a href="/lesson/laborlaw140">Topic: Proposal</a></li>
+                        <li><a href="/lesson/laborlaw141">Topic: Proposal by Congress</a></li>
+                        <li><a href="/lesson/laborlaw141">Topic: Constituent Assembly</a></li>
+                        <li><a href="/lesson/laborlaw141">Topic: Constitutional Convention</a></li>
+                        <li><a href="/lesson/laborlaw142">Topic: How to Call a Constitutional Convention</a></li>
+                        <li><a href="/lesson/laborlaw142">Topic: By a Vote of 2/3 of the Members of Congress</a></li>
+                        <li><a href="/lesson/laborlaw142">Topic: By a Majority Vote of All the Members of Congress</a>
+                        </li>
+                        <li><a href="/lesson/laborlaw143">Topic: People's Initiative</a></li>
+                        <li><a href="/lesson/laborlaw143">Topic: Republic Act No. 6735</a></li>
+                        <li><a href="/lesson/laborlaw143">Topic: Ratification</a></li>
+                        <li><a href="/lesson/laborlaw144">Topic: Doctrine of Proper Submission</a></li>
+                        <li><a href="/lesson/laborlaw144">Topic: Judicial Review of Amendment</a></li>
+                    </ul>
+                </li>
+                <li>
+                    Chapter 10: Constitutional Commission
+                    <ul>
+                        <li><a href="/lesson/laborlaw145">Topic: Independence of the Commissions</a></li>
+                        <li><a href="/lesson/laborlaw146">Topic: Appointment and Term of Office</a></li>
+                        <li><a href="/lesson/laborlaw146">Topic: Disqualifications and Inhibitions</a></li>
+                        <li><a href="/lesson/laborlaw146">Topic: Certiorari to the Supreme Court</a></li>
+                        <li><a href="/lesson/laborlaw147">Topic: The Civil Service Commission</a></li>
+                        <li><a href="/lesson/laborlaw147">Topic: The Power of Appointment</a></li>
+                        <li><a href="/lesson/laborlaw147">Topic: Appeals from the Decisions of the Civil Service
+                                Commission</a></li>
+                        <li><a href="/lesson/laborlaw148">Topic: The Commission on Elections</a></li>
+                        <li><a href="/lesson/laborlaw148">Topic: Appeals from Commission on Elections</a></li>
+                        <li><a href="/lesson/laborlaw149">Topic: Regional Trial Court Has No Jurisdiction</a></li>
+                        <li><a href="/lesson/laborlaw149">Topic: Petition for Certiorari Under Rule 64</a></li>
+                        <li><a href="/lesson/laborlaw149">Topic: Rule 64 Is Not the Exclusive Remedy</a></li>
+                        <li><a href="/lesson/laborlaw150">Topic: The Commission on Audit</a></li>
+                        <li><a href="/lesson/laborlaw150">Topic: Composition of the Commission on Audit</a></li>
+                        <li><a href="/lesson/laborlaw150">Topic: Powers of the Commission on Audit</a></li>
+                        <li><a href="/lesson/laborlaw151">Topic: Appeals from Commission on Audit</a></li>
+                    </ul>
+                </li>
+                <li>
+                    Chapter 11: Accountability of Public Officers
+                    <ul>
+                        <li><a href="/lesson/laborlaw152">Topic: Public Office is a Public Trust</a></li>
+                        <li><a href="/lesson/laborlaw152">Topic: Impeachment</a></li>
+                        <li><a href="/lesson/laborlaw153">Topic: Impeachable Officers and Grounds for Impeachment</a>
+                        </li>
+                        <li><a href="/lesson/laborlaw153">Topic: Procedure for Impeachment</a></li>
+                        <li><a href="/lesson/laborlaw153">Topic: Impeachment Result and Criminal Prosecution</a></li>
+                        <li><a href="/lesson/laborlaw154">Topic: Impeachment and Double Jeopardy</a></li>
+                        <li><a href="/lesson/laborlaw154">Topic: The Sandiganbayan</a></li>
+                        <li><a href="/lesson/laborlaw155">Topic: The Crime Must Be Connected with the Discharge of
+                                Official Functions</a></li>
+                        <li><a href="/lesson/laborlaw155">Topic: The Ombudsman</a></li>
+                        <li><a href="/lesson/laborlaw155">Topic: Qualifications of the Ombudsman</a></li>
+                        <li><a href="/lesson/laborlaw156">Topic: Appointment of Ombudsman</a></li>
+                        <li><a href="/lesson/laborlaw156">Topic: Jurisdiction of the Ombudsman</a></li>
+                        <li><a href="/lesson/laborlaw156">Topic: Office of the Special Prosecutor</a></li>
+                        <li><a href="/lesson/laborlaw157">Topic: Appeals from the Decisions of the Ombudsman</a></li>
+                        <li><a href="/lesson/laborlaw157">Topic: Power over Elected Officials</a></li>
+                        <li><a href="/lesson/laborlaw157">Topic: Powers Concurrent with the Department of Justice</a>
+                        </li>
+                        <li><a href="/lesson/laborlaw158">Topic: Ombudsman Has No Investigative Power over the
+                                Judiciary</a></li>
+                        <li><a href="/lesson/laborlaw158">Topic: Ombudsman for the Military</a></li>
+                        <li><a href="/lesson/laborlaw158">Topic: Impeachment of the Ombudsman</a></li>
+                        <li><a href="/lesson/laborlaw159">Topic: Deputy Ombudsman Not Impeachable Official</a></li>
+                        <li><a href="/lesson/laborlaw159">Topic: The President May Not Remove a Deputy Ombudsman</a>
+                        </li>
+                        <li><a href="/lesson/laborlaw159">Topic: The President May Remove a Special Prosecutor</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="con-commands">
+        <div class="commands">
+            <div class="btn-read">
+                <button id="readBtn"><ion-icon name="book"></ion-icon></button>
+            </div>
+
+            <div class="btn-pause">
+                <button id="pauseBtn" disabled><ion-icon name="pause"></ion-icon></button>
+            </div>
+
+            <div class="btn-stop">
+                <button id="stopBtn" disabled><ion-icon name="stop"></ion-icon></button>
+            </div>
+
+            <div class="btn-command">
+                <button id="speech-command"><ion-icon name="mic"></ion-icon></button>
+            </div>
+
+            <div class="btn-command">
+                <button id="bookmark-button"><ion-icon name="bookmark"></ion-icon></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bookmark Popup Container -->
+<div id="bookmark-container" style="
+position: fixed;
+bottom: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 80%;
+background-color: white;
+border: 1px solid #ccc;
+border-radius: 10px;
+padding: 15px;
+display: none;
+z-index: 1002;
+box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+">
+<h3 style="margin-bottom: 20px;">Saved Bookmarks: </h3>
+<ul id="bookmarked-items" style="list-style: none; padding: 0; margin: 0;">
+    <!-- Dynamically added bookmarks -->
+</ul>
+<button id="close-bookmark-container" style="background-color: maroon; color: white; font-weight: bold; margin-top: 10px;">Close</button>
+</div>
+
+    
+
+
+    <button id="toggleCommandBar" style="position: fixed; bottom: 20px; right: 20px; z-index: 1001; font-weight: bold;">Voice
+        Commands</button>
+        
+
+    <div id="voiceCommandBar">
+        <h4>Available Voice Commands</h4>
+        <ul>
+            <li><strong>stop</strong> - Stop speech</li>
+            <li><strong>pause</strong> - Pause speech</li>
+            <li><strong>resume</strong> - Resume paused speech</li>
+            <li><strong>read</strong> - Read the text</li>
+            <li><strong>go to page X</strong> - Navigate to page X</li>
+            <li><strong>next page</strong> - Navigate to the next page</li>
+            <li><strong>previous page</strong> - Navigate to the previous page</li>
+            <li><strong>go to home</strong> - Go to the home page</li>
+            <li><strong>go to paragraph X</strong> - Navigate to paragraph X</li>
+            <li><strong>go to topic [topic name]</strong> - Navigate to a specific topic</li>
+        </ul>
+        <button id="closeCommandBar" style="background-color: white; color: black; font-weight: bold;">Close</button>
+    </div>
+
+
+    
+    <div class="container">
+        <div class="con-card">
+            <h1>{{ title }}</h1>
+    
+            <!-- Loop through paragraphs -->
+            {% for paragraph in content %}
+            <div class="paragraph-container" id="paragraph-{{ loop.index }}">
+                <!-- Bookmark button for each paragraph -->
+                <button class="bookmark-btn" onclick="toggleBookmark({{ loop.index }})" aria-label="Bookmark this paragraph">
+                    <ion-icon name="bookmarks"></ion-icon>
+                </button>
+    
+                <!-- Paragraph content -->
+                <p>
+                    {% set processed_paragraph = paragraph 
+                        | replace('\n', '<br>') 
+                        | replace('<bold>', '<strong>') 
+                        | replace('</bold>', '</strong>') 
+                        | replace('<em>', '<em>') 
+                        | replace('</em>', '</em>') 
+                    %}
+                    {% for word in processed_paragraph.split() %}
+                        <span class="word">{{ word | safe }}</span>
+                        {% if not loop.last %}
+                        <span class="space"> </span>
+                        {% endif %}
+                    {% endfor %}
+                </p>
+            </div>
+            {% endfor %}
+    
+            <!-- Dropdown for voice selection -->
+            <div class="voice-selection">
+                <label for="voiceSelect">Choose Voice:</label>
+                <select id="voiceSelect" aria-label="Select text-to-speech voice"></select>
+            </div>
+    
+            <!-- Pagination Section -->
+            <div id="pagination" class="navigation">
+                <!-- Pagination buttons will be dynamically generated -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Your existing scripts -->
+    <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" type="module"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+   
+
+<script src="{{ url_for('static', filename='credentials.js') }}"></script>
+<script src="{{ url_for('static', filename='lesson.js') }}"></script>
+</body>
+
+</html>
